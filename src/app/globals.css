@@ -1,26 +1,167 @@
-@import "tailwindcss";
+@import "tailwindcss"; /* Import Tailwind's base, components, and utilities in v4 */
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+/* 
+This file serves as your global style layer, defining font variables, 
+color palettes (light & dark), and theme variables for Tailwind components.
+*/
 
+/* === Theme Variable Mappings === */
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
+  /* Font families */
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+
+  /* Color variables (linked to :root values) */
+  --color-background: var(--color-background);
+  --color-foreground: var(--color-foreground);
+  --color-surface: var(--color-surface);
+  --color-border: var(--color-border);
+  --color-muted: var(--color-muted);
+
+  /* primary buttons */
+  --color-primary: var(--color-primary);
+  --color-primaryHover: var(--color-primary-hover);
+  --color-primaryActive: var(--color-primary-active);
+
+  /* secondary button */
+  --color-secondary: var(--color-secondary);
+  --color-secondaryHover: var(--color-secondary-hover);
+  --color-secondaryActive: var(--color-secondary-active);
+
+  /* Text variants */
+  --color-primaryText: var(--color-foreground);
+  --color-secondaryText: var(--color-background);
+  --color-textInverse: var(--color-text-inverse);
+
+  /* Inputs */
+  --color-inputBg: var(--color-input-background);
+  --color-inputBorder: var(--color-input-border);
+  --color-inputText: var(--color-input-text);
+  --color-inputPlaceholder: var(--color-input-placeholder);
+
+  /* Icons */
+  --color-iconDefault: var(--color-icon-default);
+  --color-iconMuted: var(--color-icon-muted);
+
+  /* States */
+  --color-success: var(--color-success);
+  --color-successLight: var(--color-success-light);
+  --color-error: var(--color-error);
+  --color-errorLight: var(--color-error-light);
+  --color-warning: var(--color-warning);
+  --color-warningLight: var(--color-warning-light);
+
+  /* Disabled */
+  --color-disabledBg: var(--color-disabled-background);
+  --color-disabledText: var(--color-disabled-text);
+
+  /* Elevated surfaces */
+  --color-surfaceElevated: var(--color-surface-elevated);
+  --color-surfaceElevatedBorder: var(--color-surface-elevated-border);
 }
 
+/* === Light Mode === */
+:root {
+  /* Background */
+  --color-background: oklch(100% 0 0); /* white */
+  --color-foreground: oklch(14% 0 0); /* near-black text */
+  --color-surface: oklch(98% 0.002 230); /* subtle card background */
+  --color-border: oklch(93% 0.005 230); /* light borders */
+  --color-muted: oklch(55% 0.015 230); /* muted text */
+
+  /* Primary buttons */
+  --color-primary: oklch(55% 0.223 259.815); /* blue-600 */
+  --color-primary-hover: oklch(46% 0.223 259.815); /* blue-700 */
+  --color-primary-active: oklch(38% 0.223 259.815); /* blue-800 */
+  --color-primary-text: oklch(100% 0 0); /* white text */
+
+  /* Secondary */
+  --color-secondary: oklch(65.6% 0.241 354.308); /* pink-500 */
+  --color-secondary-hover: oklch(52.5% 0.223 3.958); /* pink-700 */
+  --color-secondary-active: oklch(40.8% 0.153 2.432); /* pink-900 */
+
+  /* Text variants */
+  --color-text-white: oklch(100% 0 0); /* white text */
+  --color-text-black: oklch(14% 0 0); /* dark text */
+  --color-text-gray: oklch(52% 0 0); /*gray*/
+  --color-text-primary: oklch(21% 0 0);
+  --color-text-secondary: oklch(41% 0.015 230); /* less prominent */
+
+  /* Inputs */
+  --color-input-background: oklch(95% 0.002 230); /* light input bg */
+  --color-input-border: oklch(85% 0.002 230); /* input border */
+  --color-input-text: oklch(14% 0 0); /* dark text */
+  --color-input-placeholder: oklch(65% 0.015 230); /* placeholder */
+
+  /* Icons */
+  --color-icon-default: oklch(25% 0.015 230); /* dark gray icons */
+  --color-icon-muted: oklch(65% 0.015 230); /* muted icons */
+
+  /* States */
+  --color-success: oklch(72% 0.181 145.976); /* green-500 */
+  --color-success-light: oklch(94% 0.044 145.976); /* green light */
+  --color-error: oklch(64% 0.245 25.661); /* red-500 */
+  --color-error-light: oklch(94% 0.034 25.661); /* red light */
+  --color-warning: oklch(80% 0.164 83.066); /* amber-500 */
+  --color-warning-light: oklch(96% 0.068 83.066); /* amber light */
+
+  /* Disabled */
+  --color-disabled-background: oklch(89% 0.004 230); /* light gray bg */
+  --color-disabled-text: oklch(65% 0.015 230); /* muted text */
+
+  /* Elevated surfaces */
+  --color-surface-elevated-border: oklch(89% 0.004 230); /* subtle border */
+}
+
+/* === Dark Mode === */
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --color-background: oklch(8% 0 230); /* deep dark bg */
+    --color-foreground: oklch(89% 0.004 230); /* light gray text */
+    --color-surface: oklch(19% 0.005 230); /* dark surface */
+    --color-border: oklch(25% 0.005 230); /* darker borders */
+    --color-muted: oklch(65% 0.015 230); /* muted light text */
+
+    --color-primary: oklch(64% 0.223 259.815); /* blue-500 */
+    --color-primary-hover: oklch(55% 0.223 259.815); /* blue-600 */
+    --color-primary-active: oklch(46% 0.223 259.815); /* blue-700 */
+    --color-primary-text: oklch(100% 0 0); /* white text */
+
+    --color-secondary: oklch(65.6% 0.241 354.308);
+    --color-secondary-hover: oklch(52.5% 0.223 3.958);
+    --color-secondary-active: oklch(40.8% 0.153 2.432);
+    --color-secondary-text: oklch(100% 0 0); /* white */
+
+    --color-text-primary: var(--color-foreground);
+    --color-text-secondary: oklch(65% 0.015 230);
+    --color-text-inverse: oklch(0% 0 0); /* black */
+
+    --color-input-background: oklch(25% 0.005 230);
+    --color-input-border: oklch(30% 0.005 230);
+    --color-input-text: oklch(85% 0.004 230);
+    --color-input-placeholder: oklch(55% 0.015 230);
+
+    --color-icon-default: oklch(85% 0.004 230);
+    --color-icon-muted: oklch(55% 0.015 230);
+
+    --color-success: oklch(72% 0.181 145.976);
+    --color-success-light: oklch(30% 0.055 145.976);
+    --color-error: oklch(64% 0.245 25.661);
+    --color-error-light: oklch(38% 0.136 25.661);
+    --color-warning: oklch(80% 0.164 83.066);
+    --color-warning-light: oklch(45% 0.089 83.066);
+
+    --color-disabled-background: oklch(25% 0.005 230);
+    --color-disabled-text: oklch(55% 0.015 230);
+
+    --color-surface-elevated: oklch(19% 0.005 230);
+    --color-surface-elevated-border: oklch(30% 0.005 230);
   }
 }
 
+/* === Base Styles === */
 body {
-  background: var(--background);
-  color: var(--foreground);
+  background-color: var(--color-background);
+  color: var(--color-foreground);
   font-family: Arial, Helvetica, sans-serif;
 }

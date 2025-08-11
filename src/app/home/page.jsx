@@ -1,4 +1,4 @@
-import Top from "../Components/top.jsx";
+import Top from "../(Components)/top.jsx";
 
 const Page = () => {
   return (
