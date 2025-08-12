@@ -17,6 +17,8 @@ color palettes (light & dark), and theme variables for Tailwind components.
   --color-surface: var(--color-surface);
   --color-border: var(--color-border);
   --color-muted: var(--color-muted);
+  --color-white: var(--color-white);
+  --color-black: var(--color-black);
 
   /* primary buttons */
   --color-primary: var(--color-primary);
@@ -29,8 +31,10 @@ color palettes (light & dark), and theme variables for Tailwind components.
   --color-secondaryActive: var(--color-secondary-active);
 
   /* Text variants */
-  --color-primaryText: var(--color-foreground);
-  --color-secondaryText: var(--color-background);
+  --color-primaryText: var(--color-primary-text);
+  --color-secondaryText: var(--color-secondary-text);
+  --color-linkText: var(--color-link-text);
+  --color-textHover: var(--color-text-hover);
   --color-textInverse: var(--color-text-inverse);
 
   /* Inputs */
@@ -63,17 +67,18 @@ color palettes (light & dark), and theme variables for Tailwind components.
 /* === Light Mode === */
 :root {
   /* Background */
-  --color-background: oklch(100% 0 0); /* white */
-  --color-foreground: oklch(14% 0 0); /* near-black text */
-  --color-surface: oklch(98% 0.002 230); /* subtle card background */
-  --color-border: oklch(93% 0.005 230); /* light borders */
-  --color-muted: oklch(55% 0.015 230); /* muted text */
+  --color-background: oklch(98.4% 0.003 247.858); /* slate 50 white */
+  --color-foreground: oklch(12.9% 0.042 264.695); /* slate 900 text */
+  --color-surface: oklch(92.9% 0.013 255.508); /* slate 200 card bg */
+  --color-border: oklch(86.9% 0.022 252.894); /* slate 300 light borders */
+  --color-muted: oklch(70.4% 0.04 256.788); /* slate 400 muted text */
+  --color-white: oklch(98.4% 0.003 247.858);
+  --color-black: oklch(12.9% 0.042 264.695);
 
   /* Primary buttons */
-  --color-primary: oklch(55% 0.223 259.815); /* blue-600 */
-  --color-primary-hover: oklch(46% 0.223 259.815); /* blue-700 */
-  --color-primary-active: oklch(38% 0.223 259.815); /* blue-800 */
-  --color-primary-text: oklch(100% 0 0); /* white text */
+  --color-primary: oklch(54.6% 0.245 262.881); /* blue-600 */
+  --color-primary-hover: oklch(48.8% 0.243 264.376); /* blue-700 */
+  --color-primary-active: oklch(42.4% 0.199 265.638); /* blue-800 */
 
   /* Secondary */
   --color-secondary: oklch(65.6% 0.241 354.308); /* pink-500 */
@@ -81,21 +86,20 @@ color palettes (light & dark), and theme variables for Tailwind components.
   --color-secondary-active: oklch(40.8% 0.153 2.432); /* pink-900 */
 
   /* Text variants */
-  --color-text-white: oklch(100% 0 0); /* white text */
-  --color-text-black: oklch(14% 0 0); /* dark text */
-  --color-text-gray: oklch(52% 0 0); /*gray*/
-  --color-text-primary: oklch(21% 0 0);
-  --color-text-secondary: oklch(41% 0.015 230); /* less prominent */
+  --color-primary-text: oklch(20.8% 0.042 265.755); /* slate 900*/
+  --color-secondary-text: oklch(27.9% 0.041 260.031); /* slate 800*/
+  --color-link-text: var(--color-primary-text);
+  --color-text-hover: var(--color-primary);
 
   /* Inputs */
-  --color-input-background: oklch(95% 0.002 230); /* light input bg */
-  --color-input-border: oklch(85% 0.002 230); /* input border */
-  --color-input-text: oklch(14% 0 0); /* dark text */
-  --color-input-placeholder: oklch(65% 0.015 230); /* placeholder */
+  --color-input-background: var(--color-background); /* light input bg */
+  --color-input-border: var(--color-border); /* input border */
+  --color-input-text: var(--color-secondary); /* dark text */
+  --color-input-placeholder: var(--color-muted); /* placeholder */
 
   /* Icons */
-  --color-icon-default: oklch(25% 0.015 230); /* dark gray icons */
-  --color-icon-muted: oklch(65% 0.015 230); /* muted icons */
+  --color-icon-default: var(--color-primaryText); /* dark gray icons */
+  --color-icon-muted: var(--color-muted); /* muted icons */
 
   /* States */
   --color-success: oklch(72% 0.181 145.976); /* green-500 */
@@ -107,7 +111,7 @@ color palettes (light & dark), and theme variables for Tailwind components.
 
   /* Disabled */
   --color-disabled-background: oklch(89% 0.004 230); /* light gray bg */
-  --color-disabled-text: oklch(65% 0.015 230); /* muted text */
+  --color-disabled-text: var(--color-muted); /* muted text */
 
   /* Elevated surfaces */
   --color-surface-elevated-border: oklch(89% 0.004 230); /* subtle border */
@@ -116,46 +120,57 @@ color palettes (light & dark), and theme variables for Tailwind components.
 /* === Dark Mode === */
 @media (prefers-color-scheme: dark) {
   :root {
-    --color-background: oklch(8% 0 230); /* deep dark bg */
-    --color-foreground: oklch(89% 0.004 230); /* light gray text */
-    --color-surface: oklch(19% 0.005 230); /* dark surface */
-    --color-border: oklch(25% 0.005 230); /* darker borders */
-    --color-muted: oklch(65% 0.015 230); /* muted light text */
+    /* Background */
+    --color-background: oklch(12.9% 0.042 264.695); /* slate 950 white */
+    --color-foreground: oklch(98.4% 0.003 247.858); /* slate 50 text */
+    --color-surface: oklch(20.8% 0.042 265.755); /* slate 900 card bg */
+    --color-border: oklch(27.9% 0.041 260.031); /* slate 800 light borders */
+    --color-muted: oklch(37.2% 0.044 257.287); /* slate 700 muted text */
+    --color-white: oklch(98.4% 0.003 247.858);
+    --color-black: oklch(12.9% 0.042 264.695);
 
-    --color-primary: oklch(64% 0.223 259.815); /* blue-500 */
-    --color-primary-hover: oklch(55% 0.223 259.815); /* blue-600 */
-    --color-primary-active: oklch(46% 0.223 259.815); /* blue-700 */
-    --color-primary-text: oklch(100% 0 0); /* white text */
+    /* Primary buttons */
+    --color-primary: oklch(54.6% 0.245 262.881); /* blue-600 */
+    --color-primary-hover: oklch(48.8% 0.243 264.376); /* blue-700 */
+    --color-primary-active: oklch(42.4% 0.199 265.638); /* blue-800 */
 
-    --color-secondary: oklch(65.6% 0.241 354.308);
-    --color-secondary-hover: oklch(52.5% 0.223 3.958);
-    --color-secondary-active: oklch(40.8% 0.153 2.432);
-    --color-secondary-text: oklch(100% 0 0); /* white */
+    /* Secondary */
+    --color-secondary: oklch(65.6% 0.241 354.308); /* pink-500 */
+    --color-secondary-hover: oklch(52.5% 0.223 3.958); /* pink-700 */
+    --color-secondary-active: oklch(40.8% 0.153 2.432); /* pink-900 */
 
-    --color-text-primary: var(--color-foreground);
-    --color-text-secondary: oklch(65% 0.015 230);
-    --color-text-inverse: oklch(0% 0 0); /* black */
+    /* Text variants */
+    --color-primary-text: oklch(96.8% 0.007 247.896); /* slate 100*/
+    --color-secondary-text: oklch(86.9% 0.022 252.894); /* slate 300*/
+    --color-link-text: var(--color-primary-text);
+    --color-text-hover: var(--color-primary);
 
-    --color-input-background: oklch(25% 0.005 230);
-    --color-input-border: oklch(30% 0.005 230);
-    --color-input-text: oklch(85% 0.004 230);
-    --color-input-placeholder: oklch(55% 0.015 230);
+    /* Inputs */
+    --color-input-background: var(--color-background); /* light input bg */
+    --color-input-border: var(--color-border); /* input border */
+    --color-input-text: var(--color-secondary); /* dark text */
+    --color-input-placeholder: var(--color-muted); /* placeholder */
 
-    --color-icon-default: oklch(85% 0.004 230);
-    --color-icon-muted: oklch(55% 0.015 230);
+    /* Icons */
+    --color-icon-default: var(--color-primaryText); /* dark gray icons */
+    --color-icon-muted: var(--color-muted); /* muted icons */
 
-    --color-success: oklch(72% 0.181 145.976);
-    --color-success-light: oklch(30% 0.055 145.976);
-    --color-error: oklch(64% 0.245 25.661);
-    --color-error-light: oklch(38% 0.136 25.661);
-    --color-warning: oklch(80% 0.164 83.066);
-    --color-warning-light: oklch(45% 0.089 83.066);
+    /* States */
+    --color-success: oklch(72% 0.181 145.976); /* green-500 */
+    --color-success-light: oklch(94% 0.044 145.976); /* green light */
+    --color-error: oklch(64% 0.245 25.661); /* red-500 */
+    --color-error-light: oklch(94% 0.034 25.661); /* red light */
+    --color-warning: oklch(80% 0.164 83.066); /* amber-500 */
+    --color-warning-light: oklch(96% 0.068 83.066); /* amber light */
 
-    --color-disabled-background: oklch(25% 0.005 230);
-    --color-disabled-text: oklch(55% 0.015 230);
+    /* Disabled */
+    --color-disabled-background: oklch(55.4% 0.046 257.417); /* dark slate bg */
+    --color-disabled-text: var(--color-muted); /* muted text */
 
-    --color-surface-elevated: oklch(19% 0.005 230);
-    --color-surface-elevated-border: oklch(30% 0.005 230);
+    /* Elevated surfaces */
+    --color-surface-elevated-border: oklch(
+      44.6% 0.043 257.281
+    ); /* subtle border */
   }
 }
 
